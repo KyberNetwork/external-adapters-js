@@ -16,7 +16,7 @@ const createRequest = (input, callback) => {
   const jobRunID = validator.validated.id
   const base = validator.validated.data.base.toLowerCase()
   const quote = validator.validated.data.quote.toLowerCase()
-  const url = `https://us.market-api.kaiko.io/v1/data/trades.v1/spot_exchange_rate/${base}/${quote}`
+  const url = `https://us.market-api.kaiko.io/v2/data/trades.v1/spot_exchange_rate/${base}/${quote}`
   const start_time = new Date() // eslint-disable-line camelcase
   start_time.setTime(start_time.getTime() - 1000000)
   const params = {
