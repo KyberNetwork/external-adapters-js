@@ -1,0 +1,25 @@
+language: node_js
+
+node_js:
+  - "10"
+
+services:
+  - docker
+
+install:
+  - echo 'skip install'
+
+script:
+  - echo 'skip script'
+
+after_success:
+  - docker --version
+  - make docker adapter=kaiko
+  - docker tag kaiko-adapter:latest kybernetwork/external-adapters-js:"$TRAVIS_COMMIT"
+
+deploy:
+  - provider: script
+    script: bash .travis/docker_push.sh
+    on:
+      all_branches: true
+      condition: $TRAVIS_BRANCH =~ ^develop|staging|master$
