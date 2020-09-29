@@ -11,9 +11,4 @@ fi
 
 echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 
-docker tag kybernetwork/external-adapters-js:"$TRAVIS_COMMIT" kybernetwork/external-adapters-js:"$TRAVIS_BRANCH"
-if [[ -n "$TRAVIS_TAG" ]]; then
-    docker tag kybernetwork/external-adapters-js:"$TRAVIS_COMMIT" kybernetwork/external-adapters-js:"$TRAVIS_TAG"
-fi
-
 docker push kybernetwork/external-adapters-js

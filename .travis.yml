@@ -15,7 +15,11 @@ script:
 after_success:
   - docker --version
   - make docker adapter=kaiko
-  - docker tag kaiko-adapter:latest kybernetwork/external-adapters-js:"$TRAVIS_COMMIT"
+  - docker tag kaiko-adapter:latest kybernetwork/external-adapters-js:kaiko-"$TRAVIS_COMMIT"
+  - docker tag kaiko-adapter:latest kybernetwork/external-adapters-js:kaiko-latest
+  - make docker adapter=coingecko
+  - docker tag coingecko-adapter:latest kybernetwork/external-adapters-js:coingecko-"$TRAVIS_COMMIT"
+  - docker tag coingecko-adapter:latest kybernetwork/external-adapters-js:coingecko-latest
 
 deploy:
   - provider: script
