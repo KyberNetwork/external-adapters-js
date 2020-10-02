@@ -20,6 +20,9 @@ after_success:
   - make docker adapter=coingecko
   - docker tag coingecko-adapter:latest kybernetwork/external-adapters-js:coingecko-"$TRAVIS_COMMIT"
   - docker tag coingecko-adapter:latest kybernetwork/external-adapters-js:coingecko-latest
+  - make docker adapter=fixer
+  - docker tag fixer-adapter:latest kybernetwork/external-adapters-js:fixer-"$TRAVIS_COMMIT"
+  - docker tag fixer-adapter:latest kybernetwork/external-adapters-js:fixer-latest
 
 deploy:
   - provider: script
