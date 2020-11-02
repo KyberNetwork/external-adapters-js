@@ -23,6 +23,9 @@ after_success:
   - make docker adapter=fixer
   - docker tag fixer-adapter:latest kybernetwork/external-adapters-js:fixer-"$TRAVIS_COMMIT"
   - docker tag fixer-adapter:latest kybernetwork/external-adapters-js:fixer-latest
+  - make docker adapter=trueusd
+  - docker tag trueusd-adapter:latest kybernetwork/external-adapters-js:trueusd-"$TRAVIS_COMMIT"
+  - docker tag trueusd-adapter:latest kybernetwork/external-adapters-js:trueusd-latest
 
 deploy:
   - provider: script
