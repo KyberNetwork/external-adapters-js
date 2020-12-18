@@ -15,6 +15,10 @@ script:
 after_success:
   - docker --version
 
+  - make docker adapter=alphavantage
+  - docker tag alphavantage-adapter:latest kybernetwork/external-adapters-js:alphavantage-"$TRAVIS_COMMIT"
+  - docker tag alphavantage-adapter:latest kybernetwork/external-adapters-js:alphavantage-latest
+
   - make docker adapter=coingecko
   - docker tag coingecko-adapter:latest kybernetwork/external-adapters-js:coingecko-"$TRAVIS_COMMIT"
   - docker tag coingecko-adapter:latest kybernetwork/external-adapters-js:coingecko-latest
