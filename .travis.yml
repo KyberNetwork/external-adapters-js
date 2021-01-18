@@ -39,6 +39,10 @@ after_success:
   - docker tag kaiko-adapter:latest kybernetwork/external-adapters-js:kaiko-"$TRAVIS_COMMIT"
   - docker tag kaiko-adapter:latest kybernetwork/external-adapters-js:kaiko-latest
 
+  - make docker adapter=openexchangerates
+  - docker tag openexchangerates-adapter:latest kybernetwork/external-adapters-js:openexchangerates-"$TRAVIS_COMMIT"
+  - docker tag openexchangerates-adapter:latest kybernetwork/external-adapters-js:openexchangerates-latest
+
   - make docker adapter=trueusd
   - docker tag trueusd-adapter:latest kybernetwork/external-adapters-js:trueusd-"$TRAVIS_COMMIT"
   - docker tag trueusd-adapter:latest kybernetwork/external-adapters-js:trueusd-latest
