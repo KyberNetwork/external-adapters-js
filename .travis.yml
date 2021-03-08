@@ -43,6 +43,10 @@ after_success:
   - docker tag openexchangerates-adapter:latest kybernetwork/external-adapters-js:openexchangerates-"$TRAVIS_COMMIT"
   - docker tag openexchangerates-adapter:latest kybernetwork/external-adapters-js:openexchangerates-latest
 
+  - make docker adapter=composite/synth-index name=synth-index
+  - docker tag synth-index-adapter:latest kybernetwork/external-adapters-js:synth-index-"$TRAVIS_COMMIT"
+  - docker tag synth-index-adapter:latest kybernetwork/external-adapters-js:synth-index-latest
+
   - make docker adapter=trueusd
   - docker tag trueusd-adapter:latest kybernetwork/external-adapters-js:trueusd-"$TRAVIS_COMMIT"
   - docker tag trueusd-adapter:latest kybernetwork/external-adapters-js:trueusd-latest
