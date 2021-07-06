@@ -15,41 +15,9 @@ script:
 after_success:
   - docker --version
 
-  - make docker adapter=alphavantage
-  - docker tag alphavantage-adapter:latest kybernetwork/external-adapters-js:alphavantage-"$TRAVIS_COMMIT"
-  - docker tag alphavantage-adapter:latest kybernetwork/external-adapters-js:alphavantage-latest
-
-  - make docker adapter=coingecko
-  - docker tag coingecko-adapter:latest kybernetwork/external-adapters-js:coingecko-"$TRAVIS_COMMIT"
-  - docker tag coingecko-adapter:latest kybernetwork/external-adapters-js:coingecko-latest
-
-  - make docker adapter=coinpaprika
-  - docker tag coinpaprika-adapter:latest kybernetwork/external-adapters-js:coinpaprika-"$TRAVIS_COMMIT"
-  - docker tag coinpaprika-adapter:latest kybernetwork/external-adapters-js:coinpaprika-latest
-
-  - make docker adapter=cryptocompare
-  - docker tag cryptocompare-adapter:latest kybernetwork/external-adapters-js:cryptocompare-"$TRAVIS_COMMIT"
-  - docker tag cryptocompare-adapter:latest kybernetwork/external-adapters-js:cryptocompare-latest
-
-  - make docker adapter=fixer
-  - docker tag fixer-adapter:latest kybernetwork/external-adapters-js:fixer-"$TRAVIS_COMMIT"
-  - docker tag fixer-adapter:latest kybernetwork/external-adapters-js:fixer-latest
-
-  - make docker adapter=kaiko
-  - docker tag kaiko-adapter:latest kybernetwork/external-adapters-js:kaiko-"$TRAVIS_COMMIT"
-  - docker tag kaiko-adapter:latest kybernetwork/external-adapters-js:kaiko-latest
-
-  - make docker adapter=openexchangerates
-  - docker tag openexchangerates-adapter:latest kybernetwork/external-adapters-js:openexchangerates-"$TRAVIS_COMMIT"
-  - docker tag openexchangerates-adapter:latest kybernetwork/external-adapters-js:openexchangerates-latest
-
   - make docker adapter=composite/synth-index name=synth-index
   - docker tag synth-index-adapter:latest kybernetwork/external-adapters-js:synth-index-"$TRAVIS_COMMIT"
   - docker tag synth-index-adapter:latest kybernetwork/external-adapters-js:synth-index-latest
-
-  - make docker adapter=trueusd
-  - docker tag trueusd-adapter:latest kybernetwork/external-adapters-js:trueusd-"$TRAVIS_COMMIT"
-  - docker tag trueusd-adapter:latest kybernetwork/external-adapters-js:trueusd-latest
 
 deploy:
   - provider: script
